@@ -3,42 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Krushi Mitra</title>
-    <script>
-        function startDictation() {
-            if (window.SpeechRecognition || window.webkitSpeechRecognition) {
-                const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-                recognition.lang = 'en-IN'; // Change to 'mr-IN' for Marathi
-                recognition.interimResults = false;
-                recognition.onresult = function(event) {
-                    document.getElementById('textInput').value = event.results[0][0].transcript;
-                }
-                recognition.start();
-            } else {
-                alert('Your browser does not support the Web Speech API. Please try in a different browser.');
-            }
-        }
-
-        function submitInput() {
-            const inputText = document.getElementById('textInput').value;
-            const resultArea = document.getElementById('result');
-            resultArea.textContent = "You submitted: " + inputText;
-            speakResult(inputText);
-        }
-
-        function speakResult(text) {
-            const utterance = new SpeechSynthesisUtterance(text);
-            speechSynthesis.speak(utterance);
-        }
-    </script>
+    <title>Smart Krushi - Farmer AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Smart Krushi Mitra</h1>
-    <div>
-        <input type="text" id="textInput" placeholder="Type here or use the microphone...">
-        <button onclick="startDictation()">🎤</button>
-        <button onclick="submitInput()">Submit</button>
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="header-content">
+                <h1>🌾 Smart Krushi</h1>
+                <p>Your AI Farming Assistant</p>
+            </div>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="english">English</button>
+                <button class="lang-btn" data-lang="marathi">मराठी</button>
+            </div>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <p id="welcome-msg">Welcome to Smart Krushi! Ask me anything about farming, crops, pests, soil, water management, and more. I'm here to help!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-area">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    class="chat-input" 
+                    placeholder="Ask your farming question..."
+                    autocomplete="off"
+                >
+                <button class="send-btn" id="sendBtn">
+                    <span>➤</span>
+                </button>
+            </div>
+            <div class="suggestions">
+                <p class="suggestions-title">Common Questions:</p>
+                <div class="suggestion-buttons">
+                    <button class="suggestion-btn" data-question="How do I prevent crop diseases?">Disease Prevention</button>
+                    <button class="suggestion-btn" data-question="What's the best watering schedule?">Watering Tips</button>
+                    <button class="suggestion-btn" data-question="How to handle pest problems?">Pest Control</button>
+                    <button class="suggestion-btn" data-question="How to improve soil fertility?">Soil Health</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
