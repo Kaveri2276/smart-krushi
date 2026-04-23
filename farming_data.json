@@ -1,0 +1,44 @@
+{
+  "farming_solutions": {
+    "crop_diseases": {
+      "English": {
+        "solution_1": "Use fungicides to combat powdery mildew.",
+        "solution_2": "Rotate crops to prevent disease buildup."
+      },
+      "Marathi": {
+        "solution_1": "पावडरी माइल्ड्यूवर मात करण्यासाठी फंगिसाइड्स वापरा.",
+        "solution_2": "रोगांच्या संचयापासून रोखण्यासाठी पीक फिरवा."
+      }
+    },
+    "watering_issues": {
+      "English": {
+        "solution_1": "Implement drip irrigation to conserve water.",
+        "solution_2": "Water early in the morning to reduce evaporation."
+      },
+      "Marathi": {
+        "solution_1": "पाण्याचा बचतीसाठी ड्रिप इरिगेशन लागू करा.",
+        "solution_2": "आवाषण कमी करण्यासाठी सकाळी लवकर पाणी द्या."
+      }
+    },
+    "pest_problems": {
+      "English": {
+        "solution_1": "Use neem oil as a natural pesticide.",
+        "solution_2": "Introduce beneficial insects to control pest populations."
+      },
+      "Marathi": {
+        "solution_1": "सौम्य कीटकनाशक म्हणून नीम तेल वापरा.",
+        "solution_2": "कीटकांची संख्या नियंत्रित करण्यासाठी लाभदायक कीटक ओळखा."
+      }
+    },
+    "soil_issues": {
+      "English": {
+        "solution_1": "Test soil pH and amend as needed.",
+        "solution_2": "Add organic matter to improve soil fertility."
+      },
+      "Marathi": {
+        "solution_1": "मातीची पीएच चाचणी करा आणि आवश्यकतेनुसार सुधारणा करा.",
+        "solution_2": "मातीची उपजाऊता सुधारण्यासाठी सेंद्रिय पदार्थ जोडा."
+      }
+    }
+  }
+}
