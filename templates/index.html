@@ -15,8 +15,12 @@
                 <p>Your AI Farming Assistant</p>
             </div>
             <div class="language-selector">
-                <button class="lang-btn active" data-lang="english">English</button>
-                <button class="lang-btn" data-lang="marathi">मराठी</button>
+                <button class="lang-btn active" data-lang="english">
+                    <span>🇬🇧</span> English
+                </button>
+                <button class="lang-btn" data-lang="marathi">
+                    <span>🇮🇳</span> मराठी
+                </button>
             </div>
         </div>
 
@@ -32,29 +36,67 @@
 
         <!-- Input Area -->
         <div class="chat-input-area">
+            <!-- Quick Action Buttons -->
+            <div class="quick-actions">
+                <button class="action-btn voice-btn" id="voiceBtn" title="Click to speak">
+                    <span class="action-icon">🎤</span>
+                    <span class="action-text" id="voiceText">Tap to Speak</span>
+                </button>
+                <button class="action-btn camera-btn" id="cameraBtn" title="Upload image for analysis">
+                    <span class="action-icon">📷</span>
+                    <span class="action-text">Take Photo</span>
+                </button>
+                <button class="action-btn audio-btn" id="audioToggle" title="Play responses as audio">
+                    <span class="action-icon">🔊</span>
+                    <span class="action-text" id="audioText">Audio ON</span>
+                </button>
+            </div>
+
+            <!-- Text Input Area -->
             <div class="input-wrapper">
                 <input 
                     type="text" 
                     id="userInput" 
                     class="chat-input" 
-                    placeholder="Ask your farming question..."
+                    placeholder="Ask your farming question or use 🎤 to speak..."
                     autocomplete="off"
                 >
                 <button class="send-btn" id="sendBtn">
                     <span>➤</span>
                 </button>
             </div>
+
+            <!-- Suggestions -->
             <div class="suggestions">
-                <p class="suggestions-title">Common Questions:</p>
+                <p class="suggestions-title">💡 Common Questions:</p>
                 <div class="suggestion-buttons">
-                    <button class="suggestion-btn" data-question="How do I prevent crop diseases?">Disease Prevention</button>
-                    <button class="suggestion-btn" data-question="What's the best watering schedule?">Watering Tips</button>
-                    <button class="suggestion-btn" data-question="How to handle pest problems?">Pest Control</button>
-                    <button class="suggestion-btn" data-question="How to improve soil fertility?">Soil Health</button>
+                    <button class="suggestion-btn" data-question="How do I prevent crop diseases?">
+                        <span class="suggestion-emoji">🌱</span>
+                        <span>Disease Prevention</span>
+                    </button>
+                    <button class="suggestion-btn" data-question="What's the best watering schedule?">
+                        <span class="suggestion-emoji">💧</span>
+                        <span>Watering Tips</span>
+                    </button>
+                    <button class="suggestion-btn" data-question="How to handle pest problems?">
+                        <span class="suggestion-emoji">🐛</span>
+                        <span>Pest Control</span>
+                    </button>
+                    <button class="suggestion-btn" data-question="How to improve soil fertility?">
+                        <span class="suggestion-emoji">🌍</span>
+                        <span>Soil Health</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Hidden audio input -->
+    <input type="file" id="audioInput" accept="audio/*" style="display: none;">
+    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+
+    <!-- Audio element for playback -->
+    <audio id="audioPlayer"></audio>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
